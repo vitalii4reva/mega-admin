@@ -9,7 +9,7 @@ type Props = {
   onChangeCapture?: React.ChangeEventHandler<HTMLInputElement>;
 };
 
-export default function InputField({ value = "", placeholder = "", onChange }: Props) {
+export default function Input({ value = "", placeholder = "", onChange }: Props) {
   return (
     <input
       value={value}

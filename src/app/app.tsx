@@ -1,13 +1,13 @@
 import React from "react";
-import SignIn from "../UI/components/SignIn";
-import SignUp from "../UI/components/SignUp";
-import LogoutButton from "../UI/components/Button/LogoutButton";
+import SignUpForm from "./components/SignUpForm";
+import SignInForm from "./components/SignInForm";
+import LogoutButton from "./components/LogoutButton/LogoutButton";
 
 const App: React.FC = () => {
   return (
     <div>
-      <SignUp />
-      <SignIn />
+      <SignUpForm />
+      <SignInForm />
       <LogoutButton />
     </div>
   );
