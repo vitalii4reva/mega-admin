@@ -1,12 +1,21 @@
-type InputProps = {
-    type: string;
-    placeholder: string;
-    value: string;
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+"use client";
+import React from "react";
+
+type Props = {
+  value?: string;
+  placeholder?: string;
+  onChange: (v: string) => void;
+  type?: string;
+  onChangeCapture?: React.ChangeEventHandler<HTMLInputElement>;
 };
 
-const Input = ({type, placeholder, value, onChange}: InputProps) => {
-    return (
-        <input type={type} placeholder={placeholder} value={value} onChange={onChange} />
-    );
-};
+export default function Input({ value = "", placeholder = "", onChange }: Props) {
+  return (
+    <input
+      value={value}
+      placeholder={placeholder}
+      onChange={(e) => onChange(e.target.value)}
+      className="w-full px-2 py-1 border rounded"
+    />
+  );
+}
