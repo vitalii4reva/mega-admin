@@ -18,7 +18,7 @@ export default function SignUpForm() {
       <div className="mt-2">
         <Input value={password} placeholder="Password" onChange={setPassword} />
       </div>
-      <button type="submit" className="mt-3 w-full px-3 py-1 bg-green-600 text-white rounded">
+      <button type="submit" className="mt-3 w-full px-3 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors font-medium">
         Sign Up
       </button>
     </form>
