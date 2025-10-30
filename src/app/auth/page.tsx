@@ -1,15 +1,16 @@
-import { useState } from "react";
+import Link from "next/link";
 import SignInForm from "../components/SignInForm";
 import SignUpForm from "../components/SignUpForm";
+import ForgotPasswordButton from "../components/ForgotPasswordButton";
 
-export default function AuthPage() {
-  const [isSignIn, setIsSignIn] = useState(true);
+export default function AuthPage({ searchParams }: { searchParams: { tab?: string } }) {
+  const isSignIn = searchParams.tab !== 'signup';
 
   return (
     <div className="max-w-sm mx-auto pt-12">
       <div className="flex gap-2 justify-center mb-5">
-        <button 
-          onClick={() => setIsSignIn(true)} 
+        <Link 
+          href="/auth?tab=signin"
           className={`px-4 py-2 rounded-md transition-colors ${
             isSignIn 
               ? "bg-blue-600 text-white font-semibold" 
@@ -17,9 +18,9 @@ export default function AuthPage() {
           }`}
         >
           Sign In
-        </button>
-        <button 
-          onClick={() => setIsSignIn(false)} 
+        </Link>
+        <Link 
+          href="/auth?tab=signup"
           className={`px-4 py-2 rounded-md transition-colors ${
             !isSignIn 
               ? "bg-green-600 text-white font-semibold" 
@@ -27,10 +28,12 @@ export default function AuthPage() {
           }`}
         >
           Sign Up
-        </button>
+        </Link>
       </div>
 
       {isSignIn ? <SignInForm /> : <SignUpForm />}
+      
+      <ForgotPasswordButton />
     </div>
   );
 }
