@@ -34,7 +34,7 @@ export default function ForgotPasswordForm() {
 
       if (response.ok) {
         setMessage(data.message);
-        setEmail(""); // Очищуємо поле
+        setEmail(""); 
       } else {
         setError(data.error || 'Помилка при відправці');
       }
